@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+for tmpl in /etc/ceph/*.tmpl; do dockerize -template $tmpl:${tmpl%%.tmpl} true; done
+/bin/ceph_exporter --ceph.config=/etc/ceph/ceph.config

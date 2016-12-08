@@ -1,0 +1,21 @@
+{
+  "links": {
+    "repository": "https://github.schibsted.io/finn/ceph_exporter",
+    "build": "https://travis.schibsted.io/finn/ceph_exporter"
+  },
+  "env": {
+    "IMAGE": "containers.schibsted.io/finntech/ceph_exporter:0.1.0"
+  },
+  "tasks": {
+    "default": [
+      {
+        "command": "docker build -t ${IMAGE} ."
+      }
+    ],
+    "deploy": [
+      {
+        "command": "docker build -t ${IMAGE} . && docker push ${IMAGE}"
+      }
+    ]
+  }
+}
